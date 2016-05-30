@@ -1,0 +1,23 @@
+{
+  "name": "custom-boostrap",
+  "description": "bootstrap compiled with gulp",
+  "main": "app.js",
+  "authors": [
+    "Jeremy Levy"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/Jlevyd15/custom-boostrap",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}
