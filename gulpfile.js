@@ -6,23 +6,15 @@ var config = {
 	publicDir: './public'
 };
 
-gulp.task('css', function(){
-	return gulp.src('./css/app.scss')
-	.pipe(sass({
-		includePaths: [config.bootstrapDir + '/assets/stylesheets'],
-	}))
-	.pipe(gulp.dest(config.publicDir + '/scss'));
-});
-
-gulp.task('fonts', function() {
-    return gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
-    .pipe(gulp.dest(config.publicDir + '/fonts'));
-});
-
 gulp.task('sass', function(){
-	return gulp.src('public/scss/app.scss')
-	.pipe(sass())
-	.pipe(gulp.dest('public/stylesheets'))
+	return gulp.src('public/scss/*')
+	.pipe(sass({includePaths: [config.bootstrapDir + '/assets/stylesheets']}))
+	.pipe(gulp.dest(config.publicDir + '/stylesheets'))
 });
 
-gulp.task('default', ['css', 'sass']);
+gulp.task('watch-sass', function() {
+  
+  gulp.watch([config.publicDir + '/scss/**/*.scss', config.bootstrapDir + '/assets/stylesheets/**/*.scss'], ['sass']);
+});
+
+gulp.task('default', ['watch-sass']);
